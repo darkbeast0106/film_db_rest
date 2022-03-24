@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CodeIgniter
  *
@@ -66,6 +67,12 @@
 switch (ENVIRONMENT)
 {
 	case 'development':
+		header('Access-Control-Allow-Origin: *');
+		header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+		header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+		if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+			exit(0);
+		}
 		error_reporting(-1);
 		ini_set('display_errors', 1);
 	break;
